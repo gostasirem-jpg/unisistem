@@ -1,3 +1,4 @@
+import sys
 YESIL="\033[32m"
 KIRMIZI="\033[31m"
 MAVI="\033[34m"
@@ -11,12 +12,18 @@ print("."*30)
 
 for ders in dersler:
     print(f"\n{MAVI}>>> {ders} Dersi İçin Notları Gir:{RESET}")
+    
+    if vize<0:
+        print(f"{KIRMIZI}Eksi not girildi. Sistemden çıkılıyor...{RESET}")
+        break
 
-    vize=int(input("Vize notu: "))
     final=int(input("Final notu: "))
+    if final<0:
+        print(f"{KIRMIZI}Eksi not girildi. Sistemden çıkılıyor...{RESET}")
+        break
 
     ortalama=(vize * 0.4)+(final * 0.6)
-
+    
     if ortalama>=90:
         harf_notu="AA"
 
@@ -43,10 +50,13 @@ for ders in dersler:
 
     else:
         harf_notu="FF"
+        
     if ortalama>=45:
-        print(f"{YESIL}Ortalama: {ortalama} - GEÇTİN{RESET}")
+        print(f"{YESIL}Ortalama: {ortalama:.2f} - GEÇTİN{RESET}")
     else:
-        print(f"{KIRMIZI}Ortalama: {ortalama} - KALDIN{RESET}")
+        print(f"{KIRMIZI}Ortalama: {ortalama:.2f} - KALDIN{RESET}")
 
-    print(f"Ortalamanız: {ortalama}")
     print(f"Harf Notunuz: {harf_notu}")
+
+print(f"\n{SIYAH_BEYAZ} İşlem Tamamlandı. {RESET}")
+
