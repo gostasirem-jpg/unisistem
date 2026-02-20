@@ -14,12 +14,12 @@ for ders in dersler:
     print(f"\n{MAVI}>>> {ders} Dersi İçin Notları Gir:{RESET}")
 
     vize=int(input("Vize notu: "))
-    if vize>100:
+    if vize<0 or vize>100:
         print(f"{KIRMIZI}Eksi not girildi. Sistemden çıkılıyor...{RESET}")
         break
 
     final=int(input("Final notu: "))
-    if final>100:
+    if final<0 or final>100:
         print(f"{KIRMIZI}Eksi not girildi. Sistemden çıkılıyor...{RESET}")
         break
 
@@ -60,6 +60,7 @@ for ders in dersler:
     print(f"Harf Notunuz: {harf_notu}")
 
 print(f"\n{SIYAH_BEYAZ} İşlem Tamamlandı. {RESET}")
+
 
 
 
