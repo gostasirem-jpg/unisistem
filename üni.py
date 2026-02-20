@@ -13,15 +13,19 @@ print("."*30)
 for ders in dersler:
     print(f"\n{MAVI}>>> {ders} Dersi İçin Notları Gir:{RESET}")
 
-    vize=int(input("Vize notu: "))
-    if vize<0 or vize>100:
-        print(f"{KIRMIZI}Eksi not girildi. Sistemden çıkılıyor...{RESET}")
-        break
+    while True:
+        vize=int(input("Vize notu: "))
+        if vize<0 or vize>100:
+            print(f"{KIRMIZI}Hatalı giriş yaptınız. Lütfen 0 ile 100 arasında bir değer girin.{RESET}")
+        else:
+            break
 
-    final=int(input("Final notu: "))
-    if final<0 or final>100:
-        print(f"{KIRMIZI}Eksi not girildi. Sistemden çıkılıyor...{RESET}")
-        break
+        while True:
+            final=int(input("Final notu: "))
+            if final<0 or final>100:
+                print(f"{KIRMIZI}Hatalı giriş yaptınız. Lütfen 0 ile 100 arasında bir değer girin.{RESET}")
+            else:
+                break
 
     ortalama=(vize * 0.4)+(final * 0.6)
     
@@ -60,6 +64,7 @@ for ders in dersler:
     print(f"Harf Notunuz: {harf_notu}")
 
 print(f"\n{SIYAH_BEYAZ} İşlem Tamamlandı. {RESET}")
+
 
 
 
